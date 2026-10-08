@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 315" fill="none">
+  <defs>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M46 0H0V46" stroke="#0a5b78" stroke-opacity=".1" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="fade">
+      <stop offset=".16" stop-color="white"/>
+      <stop offset=".82" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="field"><rect width="430" height="315" fill="url(#fade)"/></mask>
+  </defs>
+  <g mask="url(#field)">
+    <rect width="430" height="315" fill="url(#grid)"/>
+    <g stroke="#1689ab" stroke-opacity=".3" stroke-width="1">
+      <path d="M59 80 211 125 343 171M136 51 211 125 249 230M111 205 211 125 296 67"/>
+      <path d="M59 58V243M92 80H364M136 33V258M211 66V266M296 39V202" stroke-opacity=".1"/>
+    </g>
+    <g stroke="#0a7898" stroke-opacity=".5" fill="#f4f8fa" fill-opacity=".7">
+      <rect x="56" y="76" width="7" height="7"/>
+      <rect x="133" y="47" width="7" height="7"/>
+      <rect x="206" y="120" width="11" height="11" fill="#16c7d9" fill-opacity=".2"/>
+      <rect x="292" y="63" width="7" height="7"/>
+      <rect x="245" y="226" width="7" height="7"/>
+      <rect x="107" y="201" width="7" height="7"/>
+    </g>
+    <rect x="339" y="167" width="7" height="7" fill="#f28b2b" fill-opacity=".35"/>
+  </g>
+</svg>

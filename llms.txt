@@ -1,0 +1,13 @@
+# N-Forma website preview
+
+A public, browser-rendered version of the N-Forma website for design and content review.
+
+- [Home](https://ulalus.github.io/n-forma-site-preview/)
+- [Services](https://ulalus.github.io/n-forma-site-preview/services.html)
+- [Cases](https://ulalus.github.io/n-forma-site-preview/cases.html)
+- [Technologies](https://ulalus.github.io/n-forma-site-preview/technologies.html)
+- [Knowledge base](https://ulalus.github.io/n-forma-site-preview/knowledge.html)
+- [Company](https://ulalus.github.io/n-forma-site-preview/company.html)
+- [Contacts](https://ulalus.github.io/n-forma-site-preview/contacts.html)
+
+The site is in Russian. Its content and graphic design are available directly in the rendered pages. Links to detailed services, forms, case studies, and policies lead to the existing N-Forma website.

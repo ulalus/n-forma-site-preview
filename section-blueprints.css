@@ -1,0 +1,37 @@
+/* SVG fallback with an optional native WebGL canvas in the same reserved space. */
+body[data-page="services"] { --section-diagram:url("assets/section-services.svg"); }
+body[data-page="cases"] { --section-diagram:url("assets/section-cases.svg"); }
+body[data-page="technologies"] { --section-diagram:url("assets/section-technologies.svg"); }
+body[data-page="knowledge"] { --section-diagram:url("assets/section-knowledge.svg"); }
+body[data-page="company"] { --section-diagram:url("assets/section-company.svg"); }
+.section-intro--diagram > .container { position:relative; }
+.section-intro--diagram > .container::after,
+.section-blueprint-canvas {
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:290px;
+  height:210px;
+  transform:translateY(-40%);
+  pointer-events:none;
+}
+.section-intro--diagram > .container::after { background:var(--section-diagram) center / contain no-repeat; }
+.section-blueprint-canvas { display:block; }
+.section-blueprint-active::after { opacity:0; }
+.section-intro--diagram h1 { max-width:calc(100% - 350px); }
+.section-intro--diagram .intro-lead { max-width:min(790px,calc(100% - 350px)); }
+@media (min-width:901px) and (max-width:1100px) {
+  .section-intro--diagram > .container::after,.section-blueprint-canvas { width:236px;height:185px; }
+  .section-intro--diagram h1 { max-width:calc(100% - 288px); }
+  .section-intro--diagram .intro-lead { max-width:calc(100% - 288px); }
+}
+@media (max-width:900px),print {
+  .section-intro--diagram > .container::after,.section-blueprint-canvas { display:none; }
+  .section-intro--diagram h1 { max-width:1000px; }
+  .section-intro--diagram .intro-lead { max-width:790px; }
+}
+@media (prefers-reduced-motion:reduce),print {
+  .section-blueprint-canvas { display:none; }
+  .section-blueprint-active::after { opacity:1; }
+}

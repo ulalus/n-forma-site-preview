@@ -1,0 +1,159 @@
+/* Isolated motion layer. Large glass/grid planes settle into an architectural structure. */
+.lb-scene { position:absolute; inset:0; }
+.lb-aura { position:absolute; pointer-events:none; width:360px; height:260px; top:110px; right:30px; border-radius:50%; background:radial-gradient(ellipse,rgba(22,199,217,.13),rgba(22,199,217,.035) 45%,transparent 72%); opacity:0; }
+.lb-ready .lb-scene { isolation:isolate; transform-style:preserve-3d; transform:translate3d(var(--lb-x,0px),calc(var(--lb-y,0px) + var(--lb-scroll-y,0px)),0) rotateX(var(--lb-rx,0deg)) rotateY(var(--lb-ry,0deg)); transition:transform .16s ease-out,opacity .16s ease-out; opacity:var(--lb-fade,1); }
+.lb-ready .lb-aura { animation:lb-aura-in .8s ease .35s both; }
+.lb-ready .lb-blueprint .building.back { animation:lb-build-back .8s cubic-bezier(.2,.75,.25,1) .12s both,lb-back-drift 9.6s ease-in-out 1.5s infinite; }
+.lb-ready .lb-blueprint .building.front { animation:lb-build-front .85s cubic-bezier(.2,.75,.25,1) .35s both,lb-front-drift 9.6s ease-in-out 1.8s infinite; }
+.lb-trace { display:none; }
+.lb-ready.lb-desktop .lb-trace { display:block; position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.lb-trace path { fill:none; stroke:var(--cyan); vector-effect:non-scaling-stroke; }
+.lb-ready.lb-desktop .lb-outline { stroke-width:1.5; stroke-dasharray:100; stroke-dashoffset:100; animation:lb-outline-in .9s ease .35s both,lb-edge-light 9.6s ease 1.5s infinite; }
+.lb-ready.lb-desktop .building.front .lb-outline { animation-delay:.55s,1.8s; }
+.lb-ready.lb-desktop .lb-scan { stroke-width:1.5; opacity:0; transform-box:view-box; animation:lb-scan 9.6s ease-in-out 1.6s infinite; }
+.lb-ready.lb-desktop .building.front .lb-scan { animation-delay:3.8s; }
+.lb-ready.lb-desktop .lb-route { stroke-width:2; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:14 86; opacity:0; animation:lb-route 9.6s ease-in-out 1.25s infinite; }
+.lb-ready.lb-desktop .building.front .lb-route { animation-delay:3s; }
+.lb-ready .lb-blueprint .axis { animation:lb-line-in .55s ease both; translate:0 var(--lb-axis-y,0px); }
+.lb-ready .lb-blueprint .axis-a { animation-delay:.5s; }
+.lb-ready .lb-blueprint .axis-b { animation-delay:.6s; }
+.lb-ready .lb-blueprint .axis-c { animation-delay:.7s; }
+.lb-ready .lb-blueprint .axis::after { content:""; position:absolute; left:0; top:-.5px; width:68px; height:2px; opacity:0; pointer-events:none; background:linear-gradient(90deg,transparent,var(--cyan) 65%,transparent); animation:lb-data-pulse 8.8s linear 1.25s infinite; }
+.lb-ready .lb-blueprint .axis-b::after { animation-delay:3.6s; }
+.lb-ready .lb-blueprint .axis-c::after { animation-delay:6s; }
+.lb-ready .lb-blueprint .node { animation:lb-node-in .35s ease .8s both,lb-node-glow 9.6s ease 1.4s infinite; }
+.lb-ready .lb-blueprint .node-b { animation-delay:.9s,3.2s; }
+.lb-ready .lb-blueprint .node-c { animation-delay:1s,5s; }
+.lb-ready .lb-blueprint .node::after { content:""; position:absolute; inset:-7px; border:1px solid var(--cyan); border-radius:50%; opacity:0; pointer-events:none; animation:lb-signal-ring 36s ease 10s infinite; }
+.lb-ready .lb-blueprint .node-b::after { animation-delay:20s; }
+.lb-ready .lb-blueprint .node-c::after { animation-delay:30s; }
+.lb-ready .lb-blueprint.lb-paused *, .lb-ready .lb-blueprint.lb-paused *::after { animation-play-state:paused!important; }
+.lb-ready .lb-reveal { transition:opacity .48s ease var(--lb-delay,0ms),translate .48s ease var(--lb-delay,0ms); }
+.lb-ready .lb-reveal:not(.lb-visible) { opacity:0; translate:0 10px; }
+.lb-ready .lb-reveal.lb-visible { opacity:1; translate:0 0; }
+.lb-ready .lb-tilt { position:relative; transition:opacity .48s ease var(--lb-delay,0ms),translate .48s ease var(--lb-delay,0ms),transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.lb-ready.lb-desktop .hero::before { content:""; position:absolute; right:22.5%; bottom:0; height:64px; width:1px; pointer-events:none; background:linear-gradient(transparent,rgba(22,199,217,.3)); }
+.lb-ready.lb-desktop .trust-strip { position:relative; }
+.lb-ready.lb-desktop .trust-strip::before { content:""; position:absolute; right:22.5%; top:0; bottom:0; width:1px; pointer-events:none; background:linear-gradient(rgba(22,199,217,.3),rgba(22,199,217,.12)); }
+.lb-ready.lb-desktop .services-section::before { content:""; position:absolute; right:22.5%; top:0; height:64px; width:1px; pointer-events:none; background:linear-gradient(rgba(22,199,217,.12),transparent); transform:scaleY(0); transform-origin:top; transition:transform .7s ease; }
+.lb-ready.lb-desktop .services-section.lb-visible::before { transform:scaleY(1); }
+.lb-ready.lb-desktop .layer-stack { translate:0 var(--lb-stack-y,0px); }
+.lb-ready.lb-desktop .lb-tilt { transform:perspective(900px) rotateX(var(--lb-card-rx,0deg)) rotateY(var(--lb-card-ry,0deg)); }
+.lb-ready.lb-desktop .lb-tilt:hover { transform:perspective(900px) rotateX(var(--lb-card-rx,0deg)) rotateY(var(--lb-card-ry,0deg)) translateY(-7px); }
+.lb-ready.lb-desktop .lb-tilt::before { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; opacity:calc(var(--lb-highlight,0) * .6); background:radial-gradient(circle at var(--lb-glow-x,50%) var(--lb-glow-y,50%),rgba(22,199,217,.09),transparent 45%); }
+.lb-ready.lb-desktop .case-visual i, .lb-ready.lb-desktop .case-grid-lines { transition:translate .45s cubic-bezier(.2,.65,.3,1); }
+.lb-ready.lb-desktop .case-card:is(:hover,:focus-within) .case-visual i:nth-of-type(1) { translate:10px -2px; }
+.lb-ready.lb-desktop .case-card:is(:hover,:focus-within) .case-visual i:nth-of-type(2) { translate:3px 1px; }
+.lb-ready.lb-desktop .case-card:is(:hover,:focus-within) .case-visual i:nth-of-type(3) { translate:-3px 1px; }
+.lb-ready.lb-desktop .case-card:is(:hover,:focus-within) .case-visual i:nth-of-type(4) { translate:-10px -2px; }
+.lb-ready.lb-desktop .case-card:hover .case-grid-lines { translate:3px 0; }
+/* A short exploded-view gesture, once on entry; existing geometry stays intact. */
+.cta-structure i:nth-child(1) { --cta-dx:-16px; --cta-dy:10px; --cta-delay:0s; }
+.cta-structure i:nth-child(2) { --cta-dx:6px; --cta-dy:-5px; --cta-delay:.08s; }
+.cta-structure i:nth-child(3) { --cta-dx:24px; --cta-dy:-18px; --cta-delay:.16s; }
+.cta-structure i:nth-child(4) { --cta-dx:-8px; --cta-dy:5px; --cta-delay:.04s; }
+.cta-structure i:nth-child(5) { --cta-dx:8px; --cta-dy:-6px; --cta-delay:.12s; }
+.lb-ready.lb-desktop .cta-structure.lb-visible i { animation:lb-cta-unfold 1.9s cubic-bezier(.35,0,.25,1) var(--cta-delay) both; }
+@keyframes lb-cta-unfold { 0%,100%{translate:0 0} 34%,44%{translate:var(--cta-dx) var(--cta-dy)} }
+.lb-ready .process-section .steps-grid { position:relative; }
+.lb-ready .process-section.lb-visible .steps-grid::before { content:""; position:absolute; left:0; right:0; top:-1px; height:1px; pointer-events:none; background:linear-gradient(90deg,var(--cyan),rgba(22,199,217,.18)); transform-origin:left; animation:lb-process-line 1.05s ease .15s both; }
+.lb-ready .process-section.lb-visible .step-head i { animation:lb-process-node .8s ease .35s both; }
+.lb-ready .process-section.lb-visible .step:nth-child(2) .step-head i { animation-delay:.5s; }
+.lb-ready .process-section.lb-visible .step:nth-child(3) .step-head i { animation-delay:.65s; }
+.lb-ready .process-section.lb-visible .step:nth-child(4) .step-head i { animation-delay:.8s; }
+.lb-ready .process-section.lb-visible .step:nth-child(5) .step-head i { animation-delay:.95s; }
+@keyframes lb-build-back { from{opacity:0;translate:-18px 12px;clip-path:inset(-200% 120% -200% -200%)} to{opacity:1;translate:0 0;clip-path:inset(-200% -200% -200% -200%)} }
+@keyframes lb-build-front { from{opacity:0;translate:20px 18px;clip-path:inset(-200% 120% -200% -200%)} to{opacity:1;translate:0 0;clip-path:inset(-200% -200% -200% -200%)} }
+@keyframes lb-line-in { from{opacity:0;clip-path:inset(-6px 100% -6px -70px)} to{opacity:1;clip-path:inset(-6px -70px)} }
+@keyframes lb-back-drift { 0%,12%,58%,100%{translate:var(--lb-back-x,0px) 0} 25%,42%{translate:calc(var(--lb-back-x,0px) - 5px) -3px} }
+@keyframes lb-front-drift { 0%,12%,58%,100%{translate:var(--lb-front-x,0px) 0} 25%,42%{translate:calc(var(--lb-front-x,0px) + 11px) 5px} }
+@keyframes lb-outline-in { from{stroke-dashoffset:100} to{stroke-dashoffset:0} }
+@keyframes lb-edge-light { 0%,46%,100%{opacity:.08} 18%,30%{opacity:.72} }
+@keyframes lb-scan { 0%,10%{opacity:0;transform:translateY(-45%)} 16%{opacity:.65} 38%{opacity:.55} 48%,100%{opacity:0;transform:translateY(45%)} }
+@keyframes lb-route { 0%,8%{opacity:0;stroke-dashoffset:110} 16%{opacity:.88} 36%{opacity:.88} 48%,100%{opacity:0;stroke-dashoffset:-14} }
+@keyframes lb-aura-in { from{opacity:0} to{opacity:1} }
+@keyframes lb-data-pulse { 0%{opacity:0;transform:translateX(-68px)} 6%{opacity:.9} 30%{opacity:.9} 35%,100%{opacity:0;transform:translateX(var(--lb-distance,520px))} }
+@keyframes lb-node-in { from{opacity:0;scale:.6} to{opacity:1;scale:1} }
+@keyframes lb-node-glow { 0%,5%,31%,100%{box-shadow:none;background:#fff} 12%,20%{box-shadow:0 0 9px rgba(22,199,217,.45);background:var(--cyan)} }
+@keyframes lb-signal-ring { 0%,1%{opacity:0;scale:.55} 3%{opacity:.55;scale:.9} 8%,100%{opacity:0;scale:1.6} }
+@keyframes lb-process-line { from{scale:0 1;opacity:.6} to{scale:1 1;opacity:.3} }
+@keyframes lb-process-node { 0%,100%{box-shadow:none;background:transparent} 45%{box-shadow:0 0 0 4px rgba(22,199,217,.07);background:rgba(22,199,217,.07)} }
+@media (max-width:820px),(pointer:coarse),(hover:none) {
+  .lb-ready .lb-scene { transform:none;opacity:1;transition:none; }
+  .lb-ready .lb-blueprint .building.back,.lb-ready .lb-blueprint .building.front { animation:lb-mobile-in .45s ease .1s both;translate:none; }
+  .lb-ready .lb-blueprint .building.front { animation-delay:.2s; }
+  .lb-ready .lb-blueprint .axis { animation:lb-mobile-in .35s ease .25s both;translate:none; }
+  .lb-ready .lb-blueprint .node { animation:lb-mobile-in .3s ease .35s both; }
+  .lb-ready .lb-blueprint .axis::after,.lb-ready .lb-blueprint .node::after,.lb-ready .lb-trace { display:none; }
+  .lb-ready .lb-reveal:not(.lb-visible) { translate:none; }
+  .lb-ready .process-section .steps-grid::before { display:none; }
+  .lb-ready .process-section .step-head i { animation:none!important; }
+}
+@keyframes lb-mobile-in { from{opacity:0} to{opacity:1} }
+/* Broad architectural faces reshape once into the separated facets of the brand N. */
+.lb-logo { position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.lb-logo-plane { transform-box:view-box; transform-origin:0 0; }
+.lb-logo-face { fill:rgba(190,218,232,.18); stroke:rgba(8,76,111,.55); stroke-width:1; stroke-linejoin:round; }
+.lb-logo-mesh { fill:none;stroke:rgba(8,76,111,.22);stroke-width:.8; }
+.lb-logo-floor { fill:rgba(5,48,76,.12); }
+.lb-logo-cross,.lb-logo-floor,.lb-logo-beams { opacity:0; }
+.lb-logo-glass .lb-logo-face { fill:rgba(8,61,91,.07);stroke-opacity:0; }
+.lb-logo-roof .lb-logo-face { fill:none;stroke:rgba(8,76,111,.3); }
+.lb-logo-guides { fill:none; stroke:rgba(8,76,111,.22); stroke-width:.8; }
+.lb-logo-contour { fill:none; stroke:rgba(8,76,111,.35); stroke-width:.8; }
+.lb-plane-scan { fill:none;stroke:var(--cyan);stroke-width:1.2;opacity:0; }
+.lb-logo-signal { fill:none; stroke:var(--cyan); stroke-width:1.8; stroke-linecap:round; stroke-dasharray:12 88; opacity:0; }
+.lb-logo-point { fill:#f8fafc; stroke:#1689ab; stroke-width:1; }
+.lb-logo-ring { fill:none; stroke:var(--cyan); stroke-width:1; opacity:0; transform-box:fill-box; transform-origin:center; }
+.lb-logo-mode .lb-aura { top:80px; right:30px; width:400px; height:340px; }
+.lb-ready.lb-desktop .lb-logo-plane { animation:lb-plane-assemble 4.8s cubic-bezier(.45,0,.25,1) var(--plane-delay) both; }
+.lb-ready.lb-desktop .lb-logo-cross,.lb-ready.lb-desktop .lb-logo-floor,.lb-ready.lb-desktop .lb-logo-beams { animation:lb-grid-to-stripes 4.8s ease both; }
+.lb-ready.lb-desktop .lb-logo-glass .lb-logo-face { animation:lb-glass-join 5.05s ease both; }
+.lb-ready .lb-logo-contour,.lb-ready .lb-logo-guides { animation:lb-logo-resolve .9s ease 4.35s both; }
+.lb-ready .lb-logo-node { animation:lb-logo-resolve .7s ease 4.7s both; }
+.lb-ready.lb-desktop .lb-logo-signal { animation:lb-logo-signal 8.5s ease-in-out var(--signal-delay) infinite; }
+.lb-ready.lb-desktop .lb-logo-ring { animation:lb-logo-ring 32s ease-out var(--ring-delay) infinite; }
+.lb-ready.lb-desktop .lb-plane-scan { animation:lb-plane-scan 10s ease-in-out 5.3s infinite; }
+.lb-ready.lb-desktop .lb-logo-front .lb-plane-scan { animation-delay:7.8s; }
+/* SVG counterparts replace the two CSS buildings while morphing their actual faces. */
+.lb-logo-mode .building { display:none; }
+@keyframes lb-plane-assemble {
+  0%,18% { transform:var(--plane-from); }
+  100% { transform:var(--plane-to); }
+}
+@keyframes lb-glass-join { 0%,65%{stroke-opacity:1} 100%{stroke-opacity:0} }
+@keyframes lb-grid-to-stripes { 0%,30%{opacity:1} 100%{opacity:0} }
+@keyframes lb-logo-resolve { from{opacity:0} to{opacity:1} }
+@keyframes lb-plane-scan { 0%,8%{opacity:0;transform:translateY(0)} 16%,34%{opacity:.55} 44%,100%{opacity:0;transform:translateY(100px)} }
+@keyframes lb-logo-signal { 0%,5%{opacity:0;stroke-dashoffset:112} 13%,37%{opacity:.95} 49%,100%{opacity:0;stroke-dashoffset:-12} }
+@keyframes lb-logo-ring { 0%,1%{opacity:0;scale:.35} 3%{opacity:.55} 9%,100%{opacity:0;scale:1.65} }
+@media (max-width:820px),(pointer:coarse),(hover:none) {
+  .lb-ready .lb-logo-plane { animation:lb-mobile-in .65s ease both; }
+  .lb-ready .lb-logo-contour,.lb-ready .lb-logo-guides,.lb-ready .lb-logo-node { animation:lb-mobile-in .65s ease both; }
+  .lb-logo-signal,.lb-logo-ring,.lb-plane-scan { display:none; }
+  .lb-logo-mode .building { display:none; }
+}
+/* Mobile crops tightly around the complete N, with its engineering annotations. */
+@media (max-width:820px) {
+  .blueprint.lb-logo-mode { height:170px; width:100%; margin:8px auto 18px; transform:none; overflow:hidden; }
+  .lb-logo-mode .lb-logo-roofs { display:none; }
+  .lb-logo-mode .blueprint-label { top:auto; bottom:5px; left:8px; right:auto; font-size:7px; letter-spacing:.08em; }
+  .lb-logo-mode .axis-a { width:100%; left:0; bottom:45px; }
+  .lb-logo-mode .axis-b { width:94%; left:6%; bottom:40px; }
+  .lb-logo-mode .axis-c { width:72%; left:18%; bottom:68px; }
+  .lb-logo-mode .lb-aura { inset:0; width:100%; height:100%; }
+  .lb-ready .lb-logo-mode.lb-visible .lb-logo-facet .lb-logo-signal { display:block; animation:lb-logo-signal 3s ease-in-out .65s 1 both; }
+  .lb-ready .lb-logo-mode.lb-visible .lb-logo-facet-1 .lb-logo-signal { animation-delay:.95s; }
+  .lb-ready .lb-logo-mode.lb-visible .lb-logo-facet-2 .lb-logo-signal { animation-delay:1.25s; }
+}
+@media (prefers-reduced-motion:reduce),print {
+  .lb-scene{transform:none!important;opacity:1!important}
+  .lb-ready .lb-reveal{opacity:1!important;translate:none!important;transition:none!important}
+  .lb-blueprint *,.lb-blueprint *::after,.lb-ready .step-head i{animation:none!important;transition:none!important;translate:none!important;scale:1!important;clip-path:none!important;opacity:1!important}
+  .lb-aura,.lb-trace,.lb-blueprint .axis::after,.lb-blueprint .node::after,.lb-ready .process-section .steps-grid::before,.lb-ready .hero::before,.lb-ready .trust-strip::before,.lb-ready .services-section::before{display:none!important}
+  .lb-ready .lb-tilt{transform:none!important}
+  .lb-ready .case-visual i,.lb-ready .case-grid-lines{translate:none!important;transition:none!important}
+  .cta-structure i{animation:none!important;translate:none!important}
+  .lb-logo-signal,.lb-logo-ring,.lb-plane-scan{display:none!important}
+  .lb-logo-cross,.lb-logo-floor,.lb-logo-beams{display:none!important}
+}

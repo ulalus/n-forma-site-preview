@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+<defs>
+ <linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d4e3" stop-opacity=".24"/><stop offset="1" stop-color="#b9d4e3" stop-opacity=".06"/></linearGradient>
+ <radialGradient id="fade"><stop offset=".25" stop-color="white"/><stop offset="1" stop-color="black"/></radialGradient>
+ <mask id="grid-fade"><rect width="400" height="260" fill="url(#fade)"/></mask>
+ <pattern id="face-grid" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M11 0H0V11" stroke="#084c6f" stroke-opacity=".2" stroke-width=".65"/></pattern>
+</defs>
+<style>
+ .guide{stroke:#084c6f;stroke-opacity:.12;stroke-width:.7}
+ .edge{stroke:#084c6f;stroke-opacity:.44;stroke-width:1;fill:url(#face)}
+ .detail{stroke:#084c6f;stroke-opacity:.27;stroke-width:.8}
+ .signal{stroke:#16c7d9;stroke-opacity:.62;stroke-width:1}
+ .cyan{stroke:#1689ab;stroke-opacity:.7;fill:#f1f3f6;stroke-width:.8}
+ .amber{fill:#f2b84b;fill-opacity:.7}
+</style>
+<g mask="url(#grid-fade)"><path class="guide" d="M65 25V235"/><path class="guide" d="M113 25V235"/><path class="guide" d="M161 25V235"/><path class="guide" d="M209 25V235"/><path class="guide" d="M257 25V235"/><path class="guide" d="M305 25V235"/><path class="guide" d="M353 25V235"/><path class="guide" d="M32 40H376"/><path class="guide" d="M32 80H376"/><path class="guide" d="M32 120H376"/><path class="guide" d="M32 160H376"/><path class="guide" d="M32 200H376"/><path class="guide" d="M32 240H376"/></g>
+<path class="detail" d="M77 66H177V114H279V184M77 66V175H151V114M177 66V38H279V114M151 175V218H237V184H319"/><path class="guide" d="M77 66 151 114 237 184M177 38 279 114 319 184"/><rect class="edge" x="62.5" y="51.5" width="29" height="29"/><rect class="edge" x="156.0" y="93.0" width="42" height="42"/><rect class="edge" x="267.0" y="102.0" width="24" height="24"/><rect class="edge" x="141.0" y="165.0" width="20" height="20"/><path class="signal" d="M151 175V114H177"/><rect class="cyan" x="74.5" y="63.5" width="5" height="5"/><rect class="cyan" x="174.5" y="35.5" width="5" height="5"/><rect class="cyan" x="276.5" y="111.5" width="5" height="5"/><rect class="cyan" x="234.5" y="181.5" width="5" height="5"/><rect class="cyan" x="316.5" y="181.5" width="5" height="5"/><rect class="cyan" x="148.5" y="215.5" width="5" height="5"/><rect class="amber" x="231" y="178" width="12" height="12"/>
+</svg>

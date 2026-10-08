@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ulalus.github.io/n-forma-site-preview/sitemap.xml

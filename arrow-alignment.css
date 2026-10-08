@@ -1,0 +1,32 @@
+/* A font-independent arrow: its shaft sits at the lowercase optical centre. */
+.arrow {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 19px;
+  width: 19px;
+  height: 8px;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: middle;
+  align-self: center;
+  top: -1px;
+}
+.arrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 1px;
+  top: calc(50% - .5px);
+  border-top: 1px solid currentColor;
+}
+.arrow::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  right: 1px;
+  top: calc(50% - 3px);
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+}

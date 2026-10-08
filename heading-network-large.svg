@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 315" fill="none">
+  <defs>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M46 0H0V46" stroke="#0a5b78" stroke-opacity=".1" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="fade">
+      <stop offset=".3" stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rays" gradientUnits="userSpaceOnUse" cx="211" cy="125" r="185">
+      <stop stop-color="#1689ab" stop-opacity=".3"/>
+      <stop offset=".4" stop-color="#1689ab" stop-opacity=".23"/>
+      <stop offset=".78" stop-color="#1689ab" stop-opacity=".06"/>
+      <stop offset="1" stop-color="#1689ab" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="horizontal" x1="20" y1="0" x2="410" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1689ab" stop-opacity="0"/>
+      <stop offset=".4" stop-color="#1689ab" stop-opacity=".17"/>
+      <stop offset=".65" stop-color="#1689ab" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#1689ab" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="vertical" x1="0" y1="10" x2="0" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1689ab" stop-opacity="0"/>
+      <stop offset=".4" stop-color="#1689ab" stop-opacity=".15"/>
+      <stop offset=".7" stop-color="#1689ab" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#1689ab" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="edge" gradientUnits="userSpaceOnUse" cx="215" cy="157.5" r="210">
+      <stop offset=".58" stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="field"><rect width="430" height="315" fill="url(#fade)"/></mask>
+    <mask id="ray-edge"><rect width="430" height="315" fill="url(#edge)"/></mask>
+  </defs>
+  <g mask="url(#field)">
+    <g mask="url(#ray-edge)" stroke-width="1">
+      <path d="M20 66.1 211.5 125.5 419 196.8M96 10 211.5 125.5 273.6 300M20 275.3 211.5 125.5 376 10" stroke="url(#rays)"/>
+      <path d="M20 80.5H410M20 170.5H410M20 229.5H410" stroke="url(#horizontal)"/>
+      <path d="M66.5 10V300M136.5 10V300M211.5 10V300M295.5 10V300" stroke="url(#vertical)"/>
+    </g>
+    <g stroke="#0a7898" stroke-opacity=".5" fill="#f4f8fa" fill-opacity=".7">
+      <rect x="62" y="76" width="9" height="9"/>
+      <rect x="132" y="46" width="9" height="9"/>
+      <rect x="205" y="119" width="13" height="13" fill="#16c7d9" fill-opacity=".2"/>
+      <rect x="291" y="62" width="9" height="9"/>
+      <rect x="244" y="225" width="9" height="9"/>
+      <rect x="106" y="200" width="9" height="9"/>
+    </g>
+    <rect x="338" y="166" width="9" height="9" fill="#f28b2b" fill-opacity=".35"/>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none">
+<defs>
+ <linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d4e3" stop-opacity=".24"/><stop offset="1" stop-color="#b9d4e3" stop-opacity=".06"/></linearGradient>
+ <radialGradient id="fade"><stop offset=".25" stop-color="white"/><stop offset="1" stop-color="black"/></radialGradient>
+ <mask id="grid-fade"><rect width="400" height="260" fill="url(#fade)"/></mask>
+ <pattern id="face-grid" width="11" height="11" patternUnits="userSpaceOnUse"><path d="M11 0H0V11" stroke="#084c6f" stroke-opacity=".2" stroke-width=".65"/></pattern>
+</defs>
+<style>
+ .guide{stroke:#084c6f;stroke-opacity:.12;stroke-width:.7}
+ .edge{stroke:#084c6f;stroke-opacity:.44;stroke-width:1;fill:url(#face)}
+ .detail{stroke:#084c6f;stroke-opacity:.27;stroke-width:.8}
+ .signal{stroke:#16c7d9;stroke-opacity:.62;stroke-width:1}
+ .cyan{stroke:#1689ab;stroke-opacity:.7;fill:#f1f3f6;stroke-width:.8}
+ .amber{fill:#f2b84b;fill-opacity:.7}
+</style>
+<g mask="url(#grid-fade)"><path class="guide" d="M65 25V235"/><path class="guide" d="M113 25V235"/><path class="guide" d="M161 25V235"/><path class="guide" d="M209 25V235"/><path class="guide" d="M257 25V235"/><path class="guide" d="M305 25V235"/><path class="guide" d="M353 25V235"/><path class="guide" d="M32 40H376"/><path class="guide" d="M32 80H376"/><path class="guide" d="M32 120H376"/><path class="guide" d="M32 160H376"/><path class="guide" d="M32 200H376"/><path class="guide" d="M32 240H376"/></g>
+<path class="guide" d="M102 52V222M236 20V190M331 66V234"/><g transform="translate(0 0)"><path class="edge" d="M76 88 218 42 322 91 180 140Z"/><path class="detail" d="M111 76 215 126M147 65 250 115M182 54 287 103M110 104 250 57M145 123 286 75"/></g><g transform="translate(0 40)"><path class="edge" d="M76 88 218 42 322 91 180 140Z"/><path class="detail" d="M111 76 215 126M147 65 250 115M182 54 287 103M110 104 250 57M145 123 286 75"/></g><g transform="translate(0 80)"><path class="edge" d="M76 88 218 42 322 91 180 140Z"/><path class="detail" d="M111 76 215 126M147 65 250 115M182 54 287 103M110 104 250 57M145 123 286 75"/></g><rect class="cyan" x="215.5" y="39.5" width="5" height="5"/><rect class="cyan" x="177.5" y="217.5" width="5" height="5"/>
+</svg>

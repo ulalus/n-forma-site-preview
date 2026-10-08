@@ -1,0 +1,22 @@
+/* Keep the current section distinct even when the pointer leaves the menu. */
+.site-header .main-nav > a[aria-current="page"] {
+  color: var(--cyan);
+  opacity: 1;
+  font-weight: 650;
+}
+.site-header .main-nav > a[aria-current="page"]::after {
+  right: 0;
+  height: 2px;
+  background: var(--cyan);
+}
+@media (max-width: 1030px) {
+  .site-header .main-nav.is-open > a[aria-current="page"] {
+    padding-left: 14px;
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 4px 4px 0;
+    background: rgba(22, 199, 217, .13);
+  }
+  .site-header .main-nav.is-open > a[aria-current="page"]::after {
+    display: none;
+  }
+}
