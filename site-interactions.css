@@ -176,6 +176,10 @@
 .service-scope-note { margin:24px 0 0; color:#40576a; font-size:15px; line-height:1.7; max-width:960px; }
 
 /* Readable supporting text and controls shared by every preview page. */
+.eyebrow.eyebrow { font-size:15px; line-height:1.45; font-weight:650; letter-spacing:.08em; color:#40576a; }
+.eyebrow.eyebrow-light { color:#bed6e3; }
+.eyebrow.eyebrow span { flex-shrink:0; }
+@media (max-width:560px) { .eyebrow.eyebrow { letter-spacing:.06em; } }
 .site-header .main-nav { font-size:14px; }
 .site-header .main-nav a { opacity:1; }
 .button.button,.text-link.text-link,.card-link.card-link { font-size:14px; }

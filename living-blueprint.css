@@ -34,7 +34,6 @@
 .lb-ready .lb-tilt { position:relative; transition:opacity .48s ease var(--lb-delay,0ms),translate .48s ease var(--lb-delay,0ms),transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
 .lb-ready.lb-desktop .hero::before { content:""; position:absolute; right:22.5%; bottom:0; height:64px; width:1px; pointer-events:none; background:linear-gradient(transparent,rgba(22,199,217,.3)); }
 .lb-ready.lb-desktop .trust-strip { position:relative; }
-.lb-ready.lb-desktop .trust-strip::before { content:""; position:absolute; right:22.5%; top:0; bottom:0; width:1px; pointer-events:none; background:linear-gradient(rgba(22,199,217,.3),rgba(22,199,217,.12)); }
 .lb-ready.lb-desktop .services-section::before { content:""; position:absolute; right:22.5%; top:0; height:64px; width:1px; pointer-events:none; background:linear-gradient(rgba(22,199,217,.12),transparent); transform:scaleY(0); transform-origin:top; transition:transform .7s ease; }
 .lb-ready.lb-desktop .services-section.lb-visible::before { transform:scaleY(1); }
 .lb-ready.lb-desktop .layer-stack { translate:0 var(--lb-stack-y,0px); }
