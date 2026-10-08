@@ -3,12 +3,27 @@
 const exports = {};
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizationExampleMarkup = exports.STEP_RESULTS = exports.CASE_METADATA = exports.CASE_INDUSTRIES = exports.CASE_TASKS = exports.normalizeSearch = void 0;
+exports.normalizationExampleMarkup = exports.STEP_RESULTS = exports.CASE_METADATA = exports.CASE_INDUSTRIES = exports.CASE_TASKS = exports.normalizeSearch = exports.HOME_CASES = exports.HOME_CASE_FILTERS = exports.SERVICE_CATALOG_TEXT = exports.SERVICE_SCOPE_TEXT = exports.CERTIFICATION = void 0;
 exports.searchPages = searchPages;
 exports.caseId = caseId;
 exports.caseMatches = caseMatches;
 exports.stepCheckMarkup = stepCheckMarkup;
 exports.mountSiteInteractions = mountSiteInteractions;
+exports.CERTIFICATION = {
+    quality: 'ISO 9001:2015',
+    it: 'ISO/IEC 20000-1:2018',
+    scope: 'Системы менеджмента качества и IT-услуг компаний группы',
+    description: 'Сертифицированы системы менеджмента качества по ГОСТ Р ИСО 9001-2015 (ISO 9001:2015) и менеджмента IT-услуг по ISO/IEC 20000-1:2018. Владельцы сертификатов — ООО «Амарант» и ИП Савицкая Е. В.',
+};
+exports.SERVICE_SCOPE_TEXT = 'Пять задач на главной помогают выбрать решение. Девять направлений в каталоге раскрывают состав услуг. В комплексном проекте эти работы объединяются в шесть блоков — от анализа до сопровождения.';
+exports.SERVICE_CATALOG_TEXT = 'На главной — пять типовых задач, здесь — девять направлений услуг. В комплексном проекте эти работы объединяем в шесть блоков. Отдельные услуги можно заказать самостоятельно.';
+exports.HOME_CASE_FILTERS = ['Все', 'Промышленность', 'Образование', 'Авиация и транспорт'];
+exports.HOME_CASES = [
+    { category: 'Промышленность', tag: 'Промышленные предприятия', title: 'Единая логика справочников для сложного производственного контура', text: 'Нормализация данных, методология и подготовка корпоративных систем к единому управлению НСИ.', visual: 'factory', href: 'https://n-forma.ru/our-cases' },
+    { category: 'Образование', tag: 'Научные и образовательные организации', title: 'Методологическая поддержка и развитие системы НСИ', text: 'Настройка правил, ролей и процессов для устойчивой работы с мастер-данными организации.', visual: 'campus', href: 'https://n-forma.ru/our-cases' },
+    { category: 'Авиация и транспорт', tag: 'Авиация и транспорт', title: 'Ведение НСИ в корпоративных информационных системах', text: 'Поддержка качества данных, регламентов и операционных процессов в отраслевом контуре.', visual: 'transport', href: 'https://n-forma.ru/our-cases' },
+    { category: 'Авиация и транспорт', tag: 'Авиация и транспорт', title: 'Согласование справочников между разными системами', text: 'Синхронизация справочников материалов группы авиакомпаний в SAP R/3 и AMOS для единого учёта запасов.', visual: 'digital', href: 'https://n-forma.ru/project_25' },
+];
 const normalizeSearch = (value) => value.toLocaleLowerCase('ru').replaceAll('ё', 'е').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 exports.normalizeSearch = normalizeSearch;
 const problemRoutes = [
@@ -38,30 +53,31 @@ exports.CASE_TASKS = {
     methodology: 'Методология', support: 'Ведение и поддержка', integration: 'Внедрение и интеграция', documents: 'Оцифровка документов',
 };
 exports.CASE_INDUSTRIES = { aviation: 'Авиация и транспорт', education: 'Образование', industry: 'Промышленность', unspecified: 'Отрасль не указана' };
-// Classification and summaries from the existing project descriptions, not invented clients/metrics.
+// Project descriptions plus explicit scope/client links in company-history and reviews.
+// The added industry assignments are documented in docs/readability-and-content-2026-10-08.md.
 exports.CASE_METADATA = {
     1: { tasks: ['analysis'], industry: 'unspecified', result: 'Обоснование экономического эффекта для решения о старте проекта.' },
     2: { tasks: ['normalization', 'methodology'], industry: 'aviation', result: 'Единые правила и данные для сквозного учёта материалов.' },
     3: { tasks: ['analysis'], industry: 'unspecified', result: 'Выбрана модель ведения справочника с учётом качества и затрат.' },
     4: { tasks: ['migration', 'normalization'], industry: 'aviation', result: 'Единые описания и кодировка материалов для корректного учёта.' },
-    5: { tasks: ['normalization', 'methodology'], industry: 'unspecified', result: 'Снижение затрат на закупку и запасов специальной оснастки.' },
+    5: { tasks: ['normalization', 'methodology'], industry: 'aviation', result: 'Снижение затрат на закупку и запасов спецодежды и форменного обмундирования.' },
     6: { tasks: ['normalization', 'support'], industry: 'unspecified', result: 'Переход от складских таблиц Excel к единому учёту в SAP.' },
     7: { tasks: ['normalization'], industry: 'unspecified', result: 'Заявки на закупку согласованы с эталонным справочником.' },
     8: { tasks: ['normalization', 'migration'], industry: 'unspecified', result: 'Переход в единую ERP без прерывания производственных процессов.' },
     9: { tasks: ['migration'], industry: 'unspecified', result: 'Единые данные для планирования ремонта и обслуживания.' },
     10: { tasks: ['normalization', 'migration'], industry: 'aviation', result: 'Качественный учёт инструментов в единой ERP-системе.' },
-    11: { tasks: ['normalization', 'support'], industry: 'unspecified', result: 'Однозначный учёт затрат и снижение расходов на закупку услуг.' },
+    11: { tasks: ['normalization', 'support'], industry: 'aviation', result: 'Однозначный учёт затрат и снижение расходов на закупку услуг.' },
     12: { tasks: ['methodology'], industry: 'unspecified', result: 'Согласованные процессы ведения справочников и контроль качества.' },
     13: { tasks: ['methodology'], industry: 'education', result: 'Правила ведения справочника студентов и повышение качества данных.' },
     14: { tasks: ['documents'], industry: 'unspecified', result: 'Проверенная база договоров по единому стандарту качества.' },
     15: { tasks: ['normalization'], industry: 'education', result: 'Удалены дубли и неполные записи в справочнике студентов.' },
     16: { tasks: ['support'], industry: 'aviation', result: 'Качество справочников для ТОиР и поддержки лётной годности.' },
     17: { tasks: ['support'], industry: 'aviation', result: 'Учёт взаимозаменяемых материалов и аналогов для снабжения.' },
-    18: { tasks: ['support'], industry: 'unspecified', result: 'Упрощены планирование, бюджетирование и отчётность по номенклатуре.' },
+    18: { tasks: ['support'], industry: 'aviation', result: 'Упрощены планирование, бюджетирование и отчётность по номенклатуре.' },
     19: { tasks: ['support', 'methodology'], industry: 'unspecified', result: 'Стабильное ведение справочника с меньшей нагрузкой на персонал.' },
     20: { tasks: ['support'], industry: 'education', result: 'Согласованные справочники для учебных и научных процессов.' },
-    21: { tasks: ['support'], industry: 'unspecified', result: 'Качественные данные об активах для бухгалтерской отчётности.' },
-    22: { tasks: ['support'], industry: 'unspecified', result: 'Точная инвентаризация техники и планирование потребности в оборудовании.' },
+    21: { tasks: ['support'], industry: 'education', result: 'Качественные данные об активах для бухгалтерской отчётности.' },
+    22: { tasks: ['support'], industry: 'aviation', result: 'Точная инвентаризация техники и планирование потребности в оборудовании.' },
     23: { tasks: ['methodology', 'integration'], industry: 'education', result: 'Методическая поддержка внедрения 1С:MDM и модели данных студентов.' },
     24: { tasks: ['documents', 'normalization'], industry: 'education', result: 'Подготовлены данные анкет сотрудников для загрузки в систему.' },
     25: { tasks: ['normalization', 'integration'], industry: 'aviation', result: 'Согласованы справочники материалов нескольких компаний группы.' },

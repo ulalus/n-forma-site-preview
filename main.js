@@ -23,7 +23,7 @@
   const closeMenu = () => { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); toggle.setAttribute('aria-label','Открыть меню'); toggle.classList.remove('is-open'); };
   toggle.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); toggle.classList.toggle('is-open',open); toggle.setAttribute('aria-expanded',String(open)); toggle.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню'); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-  window.matchMedia('(min-width:1031px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+  window.matchMedia('(min-width:1181px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
   const dialog = document.querySelector('.search-dialog');
   const input = document.querySelector('#site-search');
   const results = document.querySelector('.search-results');
@@ -74,7 +74,7 @@
       return `<article class="overview-card${amber ? ' overview-card--amber' : ''}"${attrs}>${tags}<h2><a href="${escape(p.url)}">${escape(p.title)}</a></h2>${description}<div class="card-link"><a href="${escape(p.url)}">${page==='cases'?'Смотреть проект':'Подробнее'} <span class="arrow" aria-hidden="true">→</span></a>${p.secondary_url?`<a href="${escape(p.secondary_url)}">${escape(p.secondary_label)} →</a>`:''}</div></article>`;
     }).join('');
     if (catalogCases) overview.insertAdjacentHTML('afterend', '<div class="case-empty" data-case-empty hidden><h2>Подходящих проектов не найдено</h2><p>Попробуйте другую задачу, уберите отрасль или сбросьте фильтры.</p></div>');
-    if (page === 'services') overview.insertAdjacentHTML('afterend', '<div class="overview-note"><h2>Архитектура услуг</h2><p>В каталоге — 9 направлений работ. Полный проект состоит из 6 связанных блоков; отдельные работы можно заказать самостоятельно.</p><p>Анализ и моделирование · Подготовка данных · Подготовка систем · Подготовка процессов · Миграция · Ведение и сопровождение.</p><p><a class="text-link" href="https://n-forma.ru/services">Состав работ и результаты →</a></p><p><a href="https://n-forma.ru/mdm-form">Оценить систему НСИ →</a> · <a href="https://n-forma.ru/express-diagnostic">Оценить проект MDM →</a></p></div>');
+    if (page === 'services') overview.insertAdjacentHTML('afterend', '<div class="overview-note"><h2>Шесть блоков комплексного проекта</h2><p>Анализ и моделирование · подготовка эталонных данных · подготовка информационных систем · подготовка процессов ведения НСИ · миграция данных справочников · ведение НСИ и сопровождение.</p><p><a class="text-link" href="https://n-forma.ru/services">Состав работ и результаты →</a></p><p><a href="https://n-forma.ru/mdm-form">Оценить систему НСИ →</a> · <a href="https://n-forma.ru/express-diagnostic">Оценить проект MDM →</a></p></div>');
     if (page === 'cases') document.querySelector('.overview-tools').insertAdjacentHTML('beforeend','<a class="text-link" href="https://n-forma.ru/reviews">Отзывы заказчиков →</a>');
   }
   const prototypeCases = window.NFORMA_PROTOTYPE_CASES;
