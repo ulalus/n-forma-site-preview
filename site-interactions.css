@@ -69,7 +69,9 @@
 .step-head i { display:grid; place-items:center; overflow:visible; }
 .step-head svg { display:block; width:40px; height:40px; overflow:visible; margin:-7px 0 0 -2px; color:var(--orange); }
 .step-head .step-check-ink { fill:currentColor; stroke:none; }
-.step-head .step-check-trace { fill:none; stroke:#fff; stroke-width:14; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:0; }
+/* A flat cap and a longer gap keep both path endpoints empty before drawing.
+   The mask path extends past the ink, so the finished tapered shape stays complete. */
+.step-head .step-check-trace { fill:none; stroke:#fff; stroke-width:14; stroke-linecap:butt; stroke-linejoin:round; stroke-dasharray:1 2; stroke-dashoffset:0; }
 .step>p:not(.step-result) { margin-bottom:20px; }
 .step .step-result { margin-top:auto; min-height:76px; border-top:1px solid rgba(75,189,211,.25); padding-top:12px; color:#c4e3eb; font-size:12px; line-height:1.5; }
 .step-result span { display:block; margin-bottom:3px; color:#80b7c8; font-size:10px; }

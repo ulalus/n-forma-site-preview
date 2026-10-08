@@ -122,7 +122,7 @@ function caseMatches(entry, task = '', industry = '', query = '') {
 }
 exports.STEP_RESULTS = ['Карта проблем и приоритетов', 'Модель данных и план решения', 'Подготовленные данные и процессы', 'Система в эксплуатации', 'Актуальные данные и поддержка'];
 function stepCheckMarkup(index) {
-    return `<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><defs><mask id="step-ink-${index}" maskUnits="userSpaceOnUse" x="0" y="-6" width="44" height="48"><path class="step-check-trace" d="M7 20Q11 21 16 28Q26 11 39 3" pathLength="1" /></mask></defs><path class="step-check-ink" d="M5 19Q10 19 16 25Q26 9 40 1L39 7Q27 17 18 33Q15 34 13 30Q10 23 5 19Z" mask="url(#step-ink-${index})" /></svg>`;
+    return `<svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><defs><mask id="step-ink-${index}" maskUnits="userSpaceOnUse" x="0" y="-6" width="44" height="48"><path class="step-check-trace" d="M1 17Q9 18 16 28Q26 11 43 -1" pathLength="1" /></mask></defs><path class="step-check-ink" d="M5 19Q10 19 16 25Q26 9 40 1L39 7Q27 17 18 33Q15 34 13 30Q10 23 5 19Z" mask="url(#step-ink-${index})" /></svg>`;
 }
 const boltMarkup = `<svg class="demo-bolt" viewBox="0 0 120 64" aria-hidden="true" focusable="false"><path d="M14 19 30 10l16 9v26l-16 9-16-9ZM14 19l16 9 16-9M30 28v26M46 26h57l8 6-8 6H46"/><path d="m57 26-5 12m15-12-5 12m15-12-5 12m15-12-5 12m15-12-5 12"/></svg>`;
 exports.normalizationExampleMarkup = `<div class="container"><div class="section-heading"><div><p class="eyebrow"><span></span>От разрозненных записей к эталону</p><h2>Одна позиция.<br>Три разных названия.</h2></div><p class="demo-lead">Один и тот же болт завели трижды. Система видит разные позиции — и не показывает общую картину.</p></div>
