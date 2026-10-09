@@ -86,10 +86,7 @@
 .rx-cta-sample-arrow { position:relative; flex:0 0 19px; width:19px; height:8px; top:-1px; pointer-events:none; }
 .rx-cta-sample-arrow::before { content:""; position:absolute; left:0; right:1px; top:calc(50% - .5px); border-top:1px solid currentColor; }
 .rx-cta-sample-arrow::after { content:""; position:absolute; right:1px; top:calc(50% - 3px); width:6px; height:6px; border-top:1px solid currentColor; border-right:1px solid currentColor; transform:rotate(45deg); }
-.rx-demo-details { grid-column:1/-1; min-width:0; margin-top:12px; }
-.rx-demo-details>summary { width:fit-content; padding:10px 0; color:var(--teal); font-size:14px; cursor:pointer; }
-.rx-demo-details>summary:focus-visible { outline:3px solid var(--orange); outline-offset:4px; }
-.rx-demo-toolbar { display:flex; justify-content:space-between; gap:20px; padding-top:14px; margin-bottom:18px; align-items:end; }
+.rx-demo-toolbar { grid-column:1/-1; display:flex; justify-content:space-between; gap:20px; padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid var(--line); align-items:end; }
 .rx-demo-toolbar label { font-size:13px; color:#40576a; }
 .rx-demo-toolbar select { display:block; font:inherit; font-size:16px; padding:10px; background:white; border:1px solid #aac6d4; border-radius:4px; color:var(--ink); margin-top:6px; }
 .rx-demo-stages { display:flex; flex-wrap:wrap; gap:6px; }
@@ -108,7 +105,7 @@
 .normalization-demo:not([data-stage="0"]) [data-attribute=length] { background:#ffedcf; color:#79501b; }
 .normalization-demo .demo-placeholder,.normalization-demo .demo-result { min-height:225px; }
 .normalization-demo .demo-controls { flex-wrap:wrap; gap:12px; }
-.normalization-demo .demo-controls .demo-status { flex:1; max-width:520px; font-size:14px; }
+.normalization-demo .demo-controls .demo-status { flex-basis:100%; max-width:none; font-size:14px; }
 .rx-unit-rule { border-top:1px solid var(--line); padding-top:12px; }
 @keyframes rx-panel { from { opacity:.4; transform:translateY(4px); } to { opacity:1; transform:none; } }
 @media(max-width:1000px) {

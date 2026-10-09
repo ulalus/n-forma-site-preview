@@ -49,7 +49,6 @@ function mountResearchEnhancements(root) {
     if (demo && win) {
         const stages = [...demo.querySelectorAll('[data-demo-stage]')];
         const play = demo.querySelector('[data-demo-play]');
-        const details = demo.querySelector('[data-demo-details]');
         const toggle = demo.querySelector('[data-demo-toggle]');
         const work = demo.querySelector('[data-demo-work]');
         const result = demo.querySelector('[data-demo-result]');
@@ -106,15 +105,6 @@ function mountResearchEnhancements(root) {
         const onMode = () => { stop(); demo.querySelector('.demo-record-unit').textContent = mode.value === 'units' ? '2 уп. × 10 шт.' : '20 шт'; setStage(0); };
         const onVisibility = () => { if (root.ownerDocument.hidden)
             stop(); };
-        const onDetails = () => {
-            if (!details?.open) {
-                stop();
-                setStage(stage === 3 ? 3 : 0);
-                stop();
-            }
-        };
-        details?.addEventListener('toggle', onDetails);
-        cleanups.push(() => details?.removeEventListener('toggle', onDetails));
         stages.forEach((b, i) => { const fn = () => { stop(); setStage(i); stop(); }; b.addEventListener('click', fn); cleanups.push(() => b.removeEventListener('click', fn)); });
         play.addEventListener('click', onPlay);
         toggle.addEventListener('click', onToggle);
