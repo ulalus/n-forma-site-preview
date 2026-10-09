@@ -19,7 +19,7 @@
   transform:translateY(-46%); background:url("./heading-network-large.svg") calc(100% + var(--heading-figure-growth-x,0px)) var(--heading-figure-anchor-y,center) / min(var(--heading-figure-size,330px),100%) auto no-repeat;
 }
 .cases-section h2 { --heading-figure-y:-16px; --heading-grid-y:-8px; }
-.process-section h2 { --heading-figure-x:24px; --heading-figure-y:-16px; --heading-grid-y:-8px; }
+.process-section h2 { --heading-figure-x:24px; --heading-figure-y:-56px; --heading-grid-y:-48px; }
 .normalization-section h2 { --heading-figure-x:24px; --heading-figure-size:370px; --heading-figure-growth-x:40px; --heading-figure-anchor-y:calc(100% - 4px); }
 .services-section h2 { --heading-figure-y:-48px; --heading-grid-y:-16px; --heading-figure-size:370px; --heading-figure-growth-x:40px; --heading-figure-anchor-y:4px; }
 .partners-section .network-field { display:none; }
@@ -27,7 +27,7 @@
 .process-section .section-heading h2::before,
 .process-section .section-heading h2::after {
   right:auto;
-  left:calc(100% - 110px);
+  left:calc(100% - 132px);
   width:clamp(120px,calc(35vw - 210px),240px);
   --heading-figure-x:0px;
 }
