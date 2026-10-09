@@ -82,7 +82,10 @@
 .rx-faq details { border-bottom:1px solid var(--line); }
 .rx-faq summary { cursor:pointer; padding:20px 4px; font-size:18px; font-weight:550; }
 .rx-faq details>p { margin:0 0 20px; color:#40576a; max-width:780px; }
-.rx-cta-sample { display:inline-flex; margin-top:22px; color:#b9e7f0; font-size:15px; text-decoration:underline; text-underline-offset:4px; }
+.rx-cta-sample { display:inline-flex; align-items:center; gap:12px; max-width:100%; margin-top:22px; color:#b9e7f0; font-size:15px; text-decoration:underline; text-underline-offset:4px; }
+.rx-cta-sample-arrow { position:relative; flex:0 0 19px; width:19px; height:8px; top:-1px; pointer-events:none; }
+.rx-cta-sample-arrow::before { content:""; position:absolute; left:0; right:1px; top:calc(50% - .5px); border-top:1px solid currentColor; }
+.rx-cta-sample-arrow::after { content:""; position:absolute; right:1px; top:calc(50% - 3px); width:6px; height:6px; border-top:1px solid currentColor; border-right:1px solid currentColor; transform:rotate(45deg); }
 .rx-demo-toolbar { grid-column:1/-1; display:flex; justify-content:space-between; gap:20px; padding-bottom:22px; margin-bottom:22px; border-bottom:1px solid var(--line); align-items:end; }
 .rx-demo-toolbar label { font-size:13px; color:#40576a; }
 .rx-demo-toolbar select { display:block; font:inherit; font-size:16px; padding:10px; background:white; border:1px solid #aac6d4; border-radius:4px; color:var(--ink); margin-top:6px; }
