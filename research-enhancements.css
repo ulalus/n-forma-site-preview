@@ -10,7 +10,7 @@
 [data-rx-tabs] [role=tabpanel][hidden] { display:none!important; }
 [data-rx-tabs] [role=tabpanel]:not([hidden]) { animation:rx-panel .28s ease both; }
 .rx-tabs button:focus-visible,[data-rx-tabs] [role=tabpanel]:focus-visible,.rx-faq summary:focus-visible,.rx-audit summary:focus-visible { outline:3px solid var(--orange); outline-offset:4px; }
-.rx-roles { display:grid; grid-template-columns:1fr 1.3fr; gap:48px; padding:34px; margin-top:36px; border:1px solid var(--line); border-left:3px solid var(--teal); background:#f5f9fb; border-radius:6px; }
+.rx-roles { display:grid; grid-template-columns:1fr 1.3fr; gap:48px; padding:34px; margin-top:36px; border:1px solid var(--line); background:#f5f9fb; border-radius:6px; }
 .rx-role-content { min-height:330px; }
 .rx-role-content p { color:#40576a; margin:0 0 15px; }
 .rx-role-result { padding:14px 0 14px 18px; border-left:2px solid var(--orange); margin:20px 0; }
@@ -21,7 +21,7 @@
 .rx-architecture-layout { display:grid; grid-template-columns:280px 1fr; gap:38px; margin-top:12px; }
 .rx-architecture .rx-tabs { flex-direction:column; gap:10px; }
 .rx-architecture .rx-tabs button { padding:17px 18px; position:relative; }
-.rx-architecture .rx-tabs button[aria-selected=true] { box-shadow:inset 4px 0 var(--cyan); }
+.rx-architecture .rx-tabs button[aria-selected=true] { --corner-color:var(--cyan); }
 .rx-architecture-content { min-height:365px; }
 .rx-architecture-content p { color:#40576a; }
 .rx-flow { display:flex; align-items:center; gap:18px; margin:0 0 22px; padding:20px; background:linear-gradient(125deg,#eaf5f8,#f9fcfd); border:1px solid #cae0e8; border-radius:4px; }
