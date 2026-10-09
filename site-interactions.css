@@ -197,7 +197,9 @@
 .trust-strip .certification-standards { font-size:16px; line-height:1.35; letter-spacing:-.02em; }
 .certification-standards span { display:block; }
 .trust-strip .certification-link { display:inline-flex; align-items:center; gap:6px; margin-top:7px; color:var(--teal); text-decoration:underline; text-underline-offset:3px; }
-.certification-link .arrow { font-size:16px; }
+.certification-link .arrow { display:inline-block; position:relative; flex:0 0 19px; width:19px; height:8px; font-size:0; line-height:0; vertical-align:middle; align-self:center; top:-1px; }
+.certification-link .arrow::before { content:""; position:absolute; left:0; right:1px; top:calc(50% - .5px); border-top:1px solid currentColor; }
+.certification-link .arrow::after { content:""; position:absolute; width:6px; height:6px; right:1px; top:calc(50% - 3px); border-top:1px solid currentColor; border-right:1px solid currentColor; transform:rotate(45deg); }
 footer .footer-brand p,footer .footer-contact span { color:#c4d4df; font-size:14px; }
 footer .footer-column { font-size:14px; }
 footer .footer-column>strong { font-size:12px; }
