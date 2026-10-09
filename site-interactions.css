@@ -1,19 +1,19 @@
 /* One quiet interaction language: responsive controls and meaningful results. */
-/* Wide fading grid, compact right-aligned nodes beneath homepage section headings. */
-:is(.section-heading h2,.partner-layout h2) {
+/* Two approved accents: services and the dark process section. */
+:is(.services-section .section-heading h2,.process-section .section-heading h2) {
   position:relative; isolation:isolate;
 }
-:is(.section-heading h2,.partner-layout h2)::before,
-:is(.section-heading h2,.partner-layout h2)::after {
+:is(.services-section .section-heading h2,.process-section .section-heading h2)::before,
+:is(.services-section .section-heading h2,.process-section .section-heading h2)::after {
   content:""; position:absolute; z-index:-1; pointer-events:none;
   right:0; top:50%; opacity:1;
 }
-:is(.section-heading h2,.partner-layout h2)::before {
+:is(.services-section .section-heading h2,.process-section .section-heading h2)::before {
   width:min(700px,100%); height:clamp(230px,calc(100% + 110px),360px);
   translate:0 var(--heading-grid-y,0px);
   transform:translateY(-42%); background:url("./heading-network-grid.svg") center / 100% 100% no-repeat;
 }
-:is(.section-heading h2,.partner-layout h2)::after {
+:is(.services-section .section-heading h2,.process-section .section-heading h2)::after {
   width:min(470px,100%); height:250px;
   translate:var(--heading-figure-x,0px) var(--heading-figure-y,0px);
   transform:translateY(-46%); background:url("./heading-network-large.svg") calc(100% + var(--heading-figure-growth-x,0px)) var(--heading-figure-anchor-y,center) / min(var(--heading-figure-size,330px),100%) auto no-repeat;
@@ -24,11 +24,22 @@
 .services-section h2 { --heading-figure-y:-48px; --heading-grid-y:-16px; --heading-figure-size:370px; --heading-figure-growth-x:40px; --heading-figure-anchor-y:4px; }
 .partners-section .network-field { display:none; }
 .process-section h2::before,.process-section h2::after { filter:brightness(1.5); }
+.process-section .section-heading h2::before,
+.process-section .section-heading h2::after {
+  right:auto;
+  left:calc(100% + 24px);
+  width:clamp(120px,calc(35vw - 210px),240px);
+  --heading-figure-x:0px;
+}
+@media (max-width:1000px) {
+  .process-section .section-heading h2::before,
+  .process-section .section-heading h2::after { display:none; }
+}
 @media (max-width:820px) {
-  :is(.section-heading h2,.partner-layout h2)::before {
+  :is(.services-section .section-heading h2,.process-section .section-heading h2)::before {
     width:100%; height:clamp(220px,calc(100% + 100px),320px);
   }
-  :is(.section-heading h2,.partner-layout h2)::after {
+  :is(.services-section .section-heading h2,.process-section .section-heading h2)::after {
     width:100%; height:220px; background-size:min(var(--heading-figure-mobile-size,290px),100%) auto;
   }
   .process-section h2::before,.process-section h2::after { opacity:.9; }
@@ -40,8 +51,8 @@
   .normalization-section h2 { --heading-figure-growth-x:0px; --heading-figure-anchor-y:center; }
 }
 @media print {
-  :is(.section-heading h2,.partner-layout h2)::before,
-  :is(.section-heading h2,.partner-layout h2)::after { display:none; }
+  :is(.services-section .section-heading h2,.process-section .section-heading h2)::before,
+  :is(.services-section .section-heading h2,.process-section .section-heading h2)::after { display:none; }
 }
 
 .button.button { cursor:pointer; transform:none; transition:background-position .3s ease,box-shadow .2s ease,border-color .2s ease; }
@@ -238,7 +249,7 @@ body:not([data-page="home"]) .footer-contact { font-size:14px; }
 
 /* Independent CSS analogue of the static Grid Pattern reference.
    The opaque form covers the entire centre; only its surroundings show grid. */
-.contact-form-shell { position:relative; isolation:isolate; --grid-fringe:32px; }
+.contact-form-shell { position:relative; isolation:isolate; --grid-fringe:20px; }
 .contact-form-shell::before {
   content:"";
   position:absolute;
@@ -253,8 +264,8 @@ body:not([data-page="home"]) .footer-contact { font-size:14px; }
   mask-composite:intersect;
 }
 .contact-form-shell .contact-form { position:relative; min-height:100%; }
-@media (max-width:1100px) {
-  .contact-form-shell { --grid-fringe:20px; }
+@media (min-width:1280px) {
+  .contact-form-shell { --grid-fringe:32px; }
 }
 @media (max-width:560px) {
   .contact-form-shell { --grid-fringe:14px; }

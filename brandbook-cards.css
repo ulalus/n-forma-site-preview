@@ -13,7 +13,7 @@
   border: 1px solid var(--card-border);
   border-radius: 8px;
   background: var(--card-background);
-  box-shadow: 5px 6px 0 rgba(6, 29, 49, .065), 0 2px 7px rgba(6, 29, 49, .025);
+  box-shadow: 0 2px 7px rgba(6, 29, 49, .025);
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .brandbook-cards .overview-card--amber {
@@ -24,8 +24,8 @@
 .brandbook-cards .overview-card:hover {
   background: var(--card-background);
   border-color: var(--card-border);
-  transform: translateY(-3px);
-  box-shadow: 5px 9px 0 rgba(6, 29, 49, .055), 0 8px 18px rgba(6, 29, 49, .065);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(6, 29, 49, .045);
 }
 .brandbook-cards .overview-card h2 {
   margin: 0 0 18px;

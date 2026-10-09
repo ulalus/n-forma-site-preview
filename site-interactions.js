@@ -3,7 +3,7 @@
 const exports = {};
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizationExampleMarkup = exports.STEP_RESULTS = exports.CASE_METADATA = exports.CASE_INDUSTRIES = exports.CASE_TASKS = exports.normalizeSearch = exports.HOME_CASES = exports.HOME_CASE_FILTERS = exports.SERVICE_CATALOG_TEXT = exports.SERVICE_SCOPE_TEXT = exports.CERTIFICATION = void 0;
+exports.normalizationExampleMarkup = exports.STEP_RESULTS = exports.CASE_METADATA = exports.CASE_INDUSTRIES = exports.CASE_TASKS = exports.normalizeSearch = exports.HOME_CASES = exports.HOME_CASE_FILTERS = exports.CARD_SUMMARIES = exports.SERVICE_CATALOG_TEXT = exports.SERVICE_SCOPE_TEXT = exports.CERTIFICATION = void 0;
 exports.searchPages = searchPages;
 exports.caseId = caseId;
 exports.caseMatches = caseMatches;
@@ -15,8 +15,43 @@ exports.CERTIFICATION = {
     scope: 'Системы менеджмента качества и IT-услуг компаний группы',
     description: 'Сертифицированы системы менеджмента качества по ГОСТ Р ИСО 9001-2015 (ISO 9001:2015) и менеджмента IT-услуг по ISO/IEC 20000-1:2018. Владельцы сертификатов — ООО «Амарант» и ИП Савицкая Е. В.',
 };
-exports.SERVICE_SCOPE_TEXT = 'Пять задач на главной помогают выбрать решение. Девять направлений в каталоге раскрывают состав услуг. В комплексном проекте эти работы объединяются в шесть блоков — от анализа до сопровождения.';
-exports.SERVICE_CATALOG_TEXT = 'На главной — пять типовых задач, здесь — девять направлений услуг. В комплексном проекте эти работы объединяем в шесть блоков. Отдельные услуги можно заказать самостоятельно.';
+exports.SERVICE_SCOPE_TEXT = 'Можно заказать отдельную услугу или комплексный проект.';
+exports.SERVICE_CATALOG_TEXT = exports.SERVICE_SCOPE_TEXT;
+/** Short teasers for catalogue cards; full source descriptions stay searchable. */
+exports.CARD_SUMMARIES = {
+    'inspection': 'Состояние НСИ, узкие места и план дальнейших работ.',
+    'normalization': 'Единые записи, правила сопоставления и качество справочников.',
+    'outsourcing-outstaffing': 'Ведение справочников, проверка заявок и поддержка пользователей.',
+    'document-processing': 'Проверенные данные из документов и реестры записей.',
+    'migration': 'Подготовка, перенос и проверка данных в новой системе.',
+    'methodology': 'Правила работы с данными, роли и инструкции.',
+    'information-systems': 'Внедрение, развитие и интеграция систем НСИ.',
+    'express-servises': 'Диагностика и помощь с отдельными задачами проекта.',
+    'bitrix24-implementation': 'CRM и процессы закупок, договоров, поддержки и HR.',
+    '7tech-solution': '7TECH MDM: мастер-данные и интеграция через API.',
+    'analitics': '1С: Аналитика и Loginom для анализа и обработки данных.',
+    'bitrix24-applying': 'Как N-Forma использует Битрикс24 в своей работе.',
+    'datareon-solution': 'DATAREON для управления мастер-данными и процессами.',
+    'knowledge-space': 'Анализ и моделирование системы НСИ при обследовании.',
+    'loginom-platform': 'Возможности Loginom для обработки и проверки НСИ.',
+    'mdm-solutions-1c': 'Модель мастер-данных и MDM-решение на базе 1С.',
+    'models-and-scenarios-in-loginom': 'Примеры проверки, загрузки и обработки данных в Loginom.',
+    'normalization-technology': 'Принципы и ключевые операции нормализации данных.',
+    'agile': 'Поэтапная работа с проверкой результатов и уточнением планов.',
+    'groups': 'Роли, процессы и поддержка групп ведения НСИ.',
+    'itil-outsourcing': 'Ведение НСИ как услуга на основе практик ITIL.',
+    'maintenance-variants': 'Сравнение моделей ведения НСИ и их стоимости.',
+    'project_framework': 'Состав проекта НСИ в зависимости от задач предприятия.',
+    'reference-data': 'Структура справочников, подготовка данных и их ведение.',
+    'express-diagnostic': 'Текущее состояние MDM-проекта и ближайшие приоритеты.',
+    'mdm-form': 'Оценка зрелости НСИ и потребностей в развитии.',
+    'company-history': 'Проекты в области НСИ и мастер-данных с 2006 года.',
+    'iso-certificates': 'ISO 9001:2015 и ISO/IEC 20000-1:2018. Сертификаты и владельцы.',
+    'our-experience': 'Проекты НСИ и ERP для предприятий разных отраслей.',
+    'team': 'Управляющие партнёры и директора N-Forma.',
+    'vacancies': 'Актуальные и перспективные вакансии компании.',
+    'value': 'Опыт сложных проектов и надёжное ведение НСИ.',
+};
 exports.HOME_CASE_FILTERS = ['Все', 'Промышленность', 'Образование', 'Авиация и транспорт'];
 exports.HOME_CASES = [
     { category: 'Промышленность', tag: 'Промышленные предприятия', title: 'Единая логика справочников для сложного производственного контура', text: 'Нормализация данных, методология и подготовка корпоративных систем к единому управлению НСИ.', visual: 'factory', href: 'https://n-forma.ru/our-cases' },
@@ -127,11 +162,11 @@ function stepCheckMarkup(index) {
 const boltMarkup = `<svg class="demo-bolt" viewBox="0 0 120 64" aria-hidden="true" focusable="false"><path d="M14 19 30 10l16 9v26l-16 9-16-9ZM14 19l16 9 16-9M30 28v26M46 26h57l8 6-8 6H46"/><path d="m57 26-5 12m15-12-5 12m15-12-5 12m15-12-5 12m15-12-5 12"/></svg>`;
 exports.normalizationExampleMarkup = `<div class="container"><div class="section-heading"><div><p class="eyebrow"><span></span>От разрозненных записей к эталону</p><h2>Одна позиция.<br>Три разных названия.</h2></div><p class="demo-lead">Один и тот же болт завели трижды. Система видит разные позиции — и не показывает общую картину.</p></div>
   <div class="normalization-demo" data-normalization-demo data-state="raw" data-stage="0">
-    <div class="rx-demo-toolbar"><label>Что мешает учёту<select data-demo-mode><option value="names">Разные названия</option><option value="units">Разные единицы</option></select></label><div class="rx-demo-stages" role="group" aria-label="Шаги нормализации"><button type="button" data-demo-stage="0" aria-pressed="true">01 · Различия</button><button type="button" data-demo-stage="1" aria-pressed="false">02 · Признаки</button><button type="button" data-demo-stage="2" aria-pressed="false">03 · Проверка</button><button type="button" data-demo-stage="3" aria-pressed="false">04 · Эталон</button></div></div>
     <div class="demo-source"><div class="demo-column-head"><span>Исходные записи</span><span class="demo-count">3 кода</span></div><ul class="demo-records"><li><span class="demo-record-id">001</span><strong><span data-attribute="kind">Болт</span> <span data-attribute="diameter">М12</span>х<span data-attribute="length">40</span></strong><span class="demo-record-unit">20 шт</span></li><li><span class="demo-record-id">014</span><strong><span data-attribute="kind">БОЛТ</span> <span data-attribute="diameter">12</span>×<span data-attribute="length">40</span></strong><span class="demo-record-unit">30 штук</span></li><li><span class="demo-record-id">082</span><strong><span data-attribute="kind">болт</span> <span data-attribute="diameter">м12</span> * <span data-attribute="length">40</span></strong><span class="demo-record-unit">10 ШТ.</span></li></ul><p class="demo-source-note">Одно изделие, разные названия и единицы.</p></div>
     <div class="demo-connector" aria-hidden="true"><span></span><span class="arrow">→</span><span></span></div>
     <div class="demo-target"><div class="demo-column-head"><span data-demo-target-title>Что видит система</span><span class="demo-count" data-demo-target-count>3 позиции</span></div><div class="demo-placeholder" data-demo-placeholder><div class="demo-duplicates" aria-hidden="true"><span>${boltMarkup}<b>001</b></span><span>${boltMarkup}<b>014</b></span><span>${boltMarkup}<b>082</b></span></div><strong>Три карточки одного болта</strong><p>Остатки разнесены по дублям.<br>Есть риск заказать то, что уже лежит на складе.</p></div><div class="rx-demo-work" data-demo-work hidden></div><div class="demo-result" id="normalization-result" data-demo-result hidden><div class="demo-result-head"><span class="demo-bolt-assembly" aria-hidden="true">${boltMarkup.repeat(3)}</span><div><span class="demo-result-kicker">Единая запись · 001</span><h3><span data-attribute="kind">Болт</span> <span data-attribute="diameter">М12</span>×<span data-attribute="length">40</span></h3><p>Диаметр 12 мм · длина 40 мм</p></div></div><div class="demo-stock"><span>Общий остаток</span><strong>60 <small>шт.</small></strong></div><p class="demo-merged">3 записи → 1 эталон. Остаток виден целиком.</p></div></div>
-    <div class="demo-controls"><button type="button" class="button button-primary" data-demo-toggle aria-controls="normalization-result" aria-expanded="false"><span data-demo-button-label>Привести в порядок</span><span class="arrow" aria-hidden="true">→</span></button><button type="button" class="button button-secondary" data-demo-play aria-pressed="false">Показать по шагам</button><p class="demo-status" role="status" aria-live="polite" data-demo-status>Дубли мешают поиску, учёту и планированию закупок.</p></div>
+    <div class="demo-controls"><button type="button" class="button button-primary" data-demo-toggle aria-controls="normalization-result" aria-expanded="false"><span data-demo-button-label>Привести в порядок</span><span class="arrow" aria-hidden="true">→</span></button><p class="demo-status" role="status" aria-live="polite" data-demo-status>Дубли мешают поиску, учёту и планированию закупок.</p></div>
+    <details class="rx-demo-details" data-demo-details><summary>Разобрать по шагам</summary><div class="rx-demo-toolbar"><label>Что мешает учёту<select data-demo-mode><option value="names">Разные названия</option><option value="units">Разные единицы</option></select></label><div class="rx-demo-stages" role="group" aria-label="Шаги нормализации"><button type="button" data-demo-stage="0" aria-pressed="true">01 · Различия</button><button type="button" data-demo-stage="1" aria-pressed="false">02 · Признаки</button><button type="button" data-demo-stage="2" aria-pressed="false">03 · Проверка</button><button type="button" data-demo-stage="3" aria-pressed="false">04 · Эталон</button></div></div><button type="button" class="button button-secondary" data-demo-play aria-pressed="false">Показать по шагам</button></details>
   </div><p class="demo-note">Условный пример. В проекте совпадение записей проверяют по характеристикам, а остатки — по правилам учёта заказчика.</p></div>`;
 function mountSiteInteractions(root) {
     const win = root.ownerDocument.defaultView;
