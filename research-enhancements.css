@@ -21,7 +21,6 @@
 .rx-architecture-layout { display:grid; grid-template-columns:280px 1fr; gap:38px; margin-top:12px; }
 .rx-architecture .rx-tabs { flex-direction:column; gap:10px; }
 .rx-architecture .rx-tabs button { padding:17px 18px; position:relative; }
-.rx-architecture .rx-tabs button[aria-selected=true] { --corner-color:var(--cyan); }
 .rx-architecture-content { min-height:365px; }
 .rx-architecture-content p { color:#40576a; }
 .rx-flow { display:flex; align-items:center; gap:18px; margin:0 0 22px; padding:20px; background:linear-gradient(125deg,#eaf5f8,#f9fcfd); border:1px solid #cae0e8; border-radius:4px; }

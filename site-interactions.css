@@ -214,13 +214,13 @@ body:not([data-page="home"]) .footer-contact { font-size:14px; }
 
 /* One open upper-left engineering corner replaces continuous side rules.
    Empty pseudo-elements are decorative and never intercept input or focus. */
-:is(.brandbook-cards .overview-card,.rx-roles,.rx-architecture .rx-tabs button[aria-selected=true]) {
+:is(.brandbook-cards .overview-card,.rx-roles) {
   position:relative;
   --corner-width:42px;
   --corner-height:32px;
   --corner-color:var(--card-accent,var(--teal));
 }
-:is(.brandbook-cards .overview-card,.rx-roles,.rx-architecture .rx-tabs button[aria-selected=true])::before {
+:is(.brandbook-cards .overview-card,.rx-roles)::before {
   content:"";
   position:absolute;
   left:-1px;
@@ -230,15 +230,10 @@ body:not([data-page="home"]) .footer-contact { font-size:14px; }
   border-left:2px solid var(--corner-color);
   pointer-events:none;
 }
-:is(.brandbook-cards .overview-card,.rx-roles,.rx-architecture .rx-tabs button[aria-selected=true])::before {
+:is(.brandbook-cards .overview-card,.rx-roles)::before {
   top:-1px;
   border-top:2px solid var(--corner-color);
   border-top-left-radius:6px;
-}
-.rx-architecture .rx-tabs button[aria-selected=true] {
-  --corner-width:20px;
-  --corner-height:12px;
-  --corner-color:var(--cyan);
 }
 
 /* Independent CSS analogue of the static Grid Pattern reference.
