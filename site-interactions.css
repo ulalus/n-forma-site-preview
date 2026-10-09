@@ -27,10 +27,12 @@
 .process-section .section-heading h2::before,
 .process-section .section-heading h2::after {
   right:auto;
-  left:calc(100% + 24px);
+  left:calc(100% - 110px);
   width:clamp(120px,calc(35vw - 210px),240px);
   --heading-figure-x:0px;
 }
+:is(.services-section,.process-section) .section-heading h2::before { transform:translateY(-42%) scaleY(-1); }
+:is(.services-section,.process-section) .section-heading h2::after { transform:translateY(-46%) scaleY(-1); }
 @media (max-width:1000px) {
   .process-section .section-heading h2::before,
   .process-section .section-heading h2::after { display:none; }
