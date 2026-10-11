@@ -19,7 +19,7 @@
   transform:translateY(-46%); background:url("./heading-network-large.svg") calc(100% + var(--heading-figure-growth-x,0px)) var(--heading-figure-anchor-y,center) / min(var(--heading-figure-size,330px),100%) auto no-repeat;
 }
 .process-section h2 { --heading-figure-x:0px; --heading-figure-y:-126px; --heading-grid-y:-118px; }
-.normalization-section h2 { --heading-figure-y:-17px; --heading-grid-y:15px; --heading-grid-x:-37px; --heading-figure-size:370px; --heading-figure-growth-x:3px; --heading-figure-anchor-y:4px; }
+.normalization-section h2 { --heading-figure-x:79.25px; --heading-figure-y:-17px; --heading-grid-y:15px; --heading-grid-x:42.25px; --heading-figure-size:370px; --heading-figure-growth-x:3px; --heading-figure-anchor-y:4px; }
 .partners-section .network-field { display:none; }
 .process-section h2::before,.process-section h2::after { filter:brightness(1.5); }
 .process-section .section-heading h2::before,
